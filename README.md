@@ -36,17 +36,16 @@ factView_GA_Campaign-Level-Stats
   - File exported to Cloud Storage > bGenius feed > stgorderyoyodwprod.blob.core.windows.net > sem-dataextract
 
 3. BigQuery
-  - Table dimView_NS_Azure_Extract created from the Cloud Storage file
+  - Table dimView_NS_Azure_Extract created from the Cloud Storage file. Scheduled query set to run everyday at 9.30AM Irish time
 
 
-
-CREATE OR REPLACE EXTERNAL TABLE `rare-deployment-311310.dimView_NS.dimView_NS_Azure_Extract`
-OPTIONS (
-  format = 'CSV',
-  allow_quoted_newlines	= TRUE,
-  uris = ['gs://bgenius-feed/stgorderyoyodwprod.blob.core.windows.net/*.csv']
+     CREATE OR REPLACE EXTERNAL TABLE `rare-deployment-311310.dimView_NS.dimView_NS_Azure_Extract`
+     OPTIONS (
+       format = 'CSV',
+       allow_quoted_newlines	= TRUE,
+       uris = ['gs://bgenius-feed/stgorderyoyodwprod.blob.core.windows.net/*.csv']
 )
-Scheduled query set to run everyday at 9.30AM Irish time
+
 
  
 
